@@ -1,0 +1,445 @@
+:root {
+  --vn-gold-accent: #edd28d;
+  --vn-gold: #b69f6d;
+  --vn-bg: #f2f1ed;
+  --vn-muted: #8f8f8f;
+  --vn-black: #111111;
+
+  --vn-panel: #fbfaf7;
+  --vn-border: rgba(17, 17, 17, 0.12);
+  --vn-shadow-sm: 0 6px 18px rgba(17, 17, 17, 0.12);
+  --vn-shadow: 0 18px 48px rgba(17, 17, 17, 0.18);
+
+  /* Dark band surfaces */
+  --vn-ink: #0b0b0d;
+  --vn-ink-soft: #141417;
+  --vn-muted-on-dark: rgba(255, 255, 255, 0.72);
+  --vn-border-on-dark: rgba(182, 159, 109, 0.18);
+}
+
+body {
+  background: var(--vn-bg);
+  color: var(--vn-black);
+  text-rendering: optimizeLegibility;
+}
+
+/* Mixed-theme dark bands */
+.bg-ink {
+  background: var(--vn-ink);
+  color: #fff;
+  position: relative;
+}
+
+.bg-ink::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(237, 210, 141, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(182, 159, 109, 0.10), transparent 60%);
+  pointer-events: none;
+}
+
+.bg-ink-soft {
+  background: var(--vn-ink-soft);
+  color: #fff;
+}
+
+/* Golden author section (separates from dark curriculum) */
+.about-gold {
+  position: relative;
+  background: linear-gradient(135deg, #f5ecd7 0%, var(--vn-gold-accent) 55%, #e8d89f 100%);
+  border-top: 4px solid var(--vn-gold);
+}
+
+.about-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.35), transparent 60%);
+  pointer-events: none;
+}
+
+.about-gold,
+.about-gold h1,
+.about-gold h2,
+.about-gold h3,
+.about-gold h4,
+.about-gold h5,
+.about-gold h6 {
+  color: #2a2419;
+}
+
+.about-gold p {
+  color: #3d3529;
+  line-height: 1.7;
+}
+
+.about-gold .text-gold {
+  color: #8f7a4d !important;
+}
+
+.bg-ink .text-vn-muted,
+.bg-ink-soft .text-vn-muted {
+  color: var(--vn-muted-on-dark) !important;
+}
+
+.bg-ink a.link-ink,
+.bg-ink-soft a.link-ink {
+  color: #fff;
+  text-decoration-color: rgba(182, 159, 109, 0.85);
+}
+
+.bg-ink a.link-ink:hover,
+.bg-ink-soft a.link-ink:hover {
+  color: #fff;
+  text-decoration-color: rgba(237, 210, 141, 1);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+  color: var(--vn-black);
+  border: 1px solid var(--vn-border);
+  border-radius: 0.75rem;
+  transform: translateY(-150%);
+  transition: transform 160ms ease;
+  z-index: 1060; /* above header */
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid rgba(182, 159, 109, 0.35);
+  outline-offset: 2px;
+}
+
+/* Typography helpers */
+.text-vn-muted {
+  color: var(--vn-muted) !important;
+}
+
+.letter-spaced {
+  letter-spacing: 0.08em;
+}
+
+/* Layout */
+.section {
+  scroll-margin-top: 1rem;
+}
+
+.bg-panel {
+  background: var(--vn-panel);
+}
+
+.card-soft {
+  background: #fff;
+  border: 1px solid var(--vn-border);
+  border-radius: 1rem;
+  box-shadow: var(--vn-shadow-sm);
+}
+
+/* Cards inside dark bands */
+.bg-ink .card-soft,
+.bg-ink-soft .card-soft {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--vn-border-on-dark);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.45);
+}
+
+.border-gold {
+  border-color: rgba(182, 159, 109, 0.55) !important;
+}
+
+.brand-logo {
+  max-height: 64px;
+  width: auto;
+}
+
+/* Buttons (Bootstrap variable-based overrides) */
+.btn-vn {
+  --bs-btn-bg: var(--vn-gold);
+  --bs-btn-border-color: var(--vn-gold);
+  --bs-btn-color: var(--vn-black);
+  --bs-btn-hover-bg: #c3ad77;
+  --bs-btn-hover-border-color: #c3ad77;
+  --bs-btn-hover-color: var(--vn-black);
+  --bs-btn-focus-shadow-rgb: 182, 159, 109;
+  font-weight: 700;
+}
+
+.btn-vn-outline {
+  --bs-btn-color: var(--vn-black);
+  --bs-btn-border-color: var(--vn-black);
+  --bs-btn-hover-bg: var(--vn-black);
+  --bs-btn-hover-border-color: var(--vn-black);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-focus-shadow-rgb: 17, 17, 17;
+  font-weight: 700;
+}
+
+/* Outline button should be light on dark sections */
+.bg-ink .btn-vn-outline,
+.bg-ink-soft .btn-vn-outline {
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: rgba(255, 255, 255, 0.75);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-hover-color: var(--vn-black);
+  --bs-btn-focus-shadow-rgb: 237, 210, 141;
+}
+
+.btn-vn-outline-gold {
+  --bs-btn-color: var(--vn-gold);
+  --bs-btn-border-color: var(--vn-gold);
+  --bs-btn-hover-bg: var(--vn-gold);
+  --bs-btn-hover-border-color: var(--vn-gold);
+  --bs-btn-hover-color: var(--vn-black);
+  --bs-btn-focus-shadow-rgb: 182, 159, 109;
+  font-weight: 700;
+}
+
+/* Hover-only animation */
+.hover-lift {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.btn {
+  transition: transform 180ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift,
+  .btn {
+    transition: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--vn-shadow);
+    border-color: rgba(182, 159, 109, 0.6);
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Links */
+a.link-ink {
+  color: var(--vn-black);
+  text-decoration-color: rgba(182, 159, 109, 0.7);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a.link-ink:hover {
+  color: var(--vn-black);
+  text-decoration-color: rgba(182, 159, 109, 1);
+}
+
+/* Badges */
+.badge-vn {
+  background: rgba(237, 210, 141, 0.35);
+  color: var(--vn-black);
+  border: 1px solid rgba(182, 159, 109, 0.35);
+  font-weight: 700;
+}
+
+/* On dark bands, keep badge readable */
+.bg-ink .badge-vn,
+.bg-ink-soft .badge-vn {
+  background: rgba(237, 210, 141, 0.18);
+  color: #fff;
+  border-color: rgba(182, 159, 109, 0.5);
+}
+
+/* Icon circle for feature/outcome cards */
+.icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--vn-gold), var(--vn-gold-accent));
+  color: #000;
+  box-shadow: 0 10px 24px rgba(182, 159, 109, 0.28);
+  font-size: 1.2rem;
+}
+
+/* Large variant (used in What-is section) */
+.icon-circle--lg {
+  width: 75px;
+  height: 75px;
+  font-size: 2rem;
+}
+
+/* Accordions */
+.accordion-vn .accordion-item {
+  background: transparent;
+  border: 1px solid var(--vn-border);
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+
+.accordion-vn .accordion-item + .accordion-item {
+  margin-top: 0.75rem;
+}
+
+.accordion-vn .accordion-button {
+  background: #fff;
+  color: var(--vn-black);
+  font-weight: 700;
+}
+
+.accordion-vn .accordion-button:not(.collapsed) {
+  background: rgba(237, 210, 141, 0.18);
+  box-shadow: none;
+}
+
+.accordion-vn .accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(182, 159, 109, 0.28);
+}
+
+.accordion-vn .accordion-body {
+  background: #fff;
+}
+
+/* Dark-band accordions */
+.bg-ink-soft .accordion-vn .accordion-item,
+.bg-ink .accordion-vn .accordion-item {
+  border-color: var(--vn-border-on-dark);
+}
+
+.bg-ink-soft .accordion-vn .accordion-button,
+.bg-ink .accordion-vn .accordion-button {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+.bg-ink-soft .accordion-vn .accordion-button::after,
+.bg-ink .accordion-vn .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.bg-ink-soft .accordion-vn .accordion-button:not(.collapsed),
+.bg-ink .accordion-vn .accordion-button:not(.collapsed) {
+  background: rgba(237, 210, 141, 0.10);
+  box-shadow: none;
+}
+
+.bg-ink-soft .accordion-vn .accordion-body,
+.bg-ink .accordion-vn .accordion-body {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--vn-muted-on-dark);
+}
+
+/* Comparison table */
+.comparison-table th,
+.comparison-table td {
+  padding: 0.9rem 0.75rem;
+}
+
+.comparison-table tbody tr {
+  border-top: 1px solid var(--vn-border);
+}
+
+.bg-ink .comparison-table tbody tr {
+  border-top: 1px solid var(--vn-border-on-dark);
+}
+
+.bg-ink .comparison-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: rgba(255, 255, 255, 0.88);
+  --bs-table-border-color: var(--vn-border-on-dark);
+}
+
+.bg-ink .comparison-table th,
+.bg-ink .comparison-table td {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.bg-ink .comparison-table thead th {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Final CTA band */
+.final-cta {
+  background: #000;
+}
+
+.final-cta {
+  position: relative;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(182, 159, 109, 0.20), transparent 65%);
+  pointer-events: none;
+}
+
+/* Author photo styling */
+.author-photo {
+  border-radius: 1rem;
+  border: 2px solid rgba(182, 159, 109, 0.55);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.text-gold {
+  color: var(--vn-gold-accent) !important;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 1rem;
+}
+
+.plan-toggle {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .plan-toggle {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.plan-label {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--vn-border);
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-label {
+    transition: none;
+  }
+}
+
+.btn-check:checked + .plan-label {
+  border-color: rgba(182, 159, 109, 0.7);
+  background: rgba(237, 210, 141, 0.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .plan-label:hover {
+    transform: translateY(-1px);
+    border-color: rgba(182, 159, 109, 0.6);
+  }
+}
