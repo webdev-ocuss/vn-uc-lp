@@ -23,6 +23,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Mixed-theme dark bands */
 .bg-ink {
   background: var(--vn-ink);
@@ -304,6 +314,63 @@ body {
   line-height: 1.6;
 }
 
+/* 3-column vertical dividers (Integration page section 6) */
+@media (min-width: 992px) {
+  .cols-2-divider {
+    position: relative;
+  }
+
+  .cols-2-divider::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 2px;
+    background: rgba(17, 17, 17, 0.18);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .cols-3-divider {
+    position: relative;
+  }
+
+  .cols-3-divider > [class*='col-'] {
+    position: relative;
+  }
+
+  .cols-3-divider > [class*='col-']:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    right: -0.75rem;
+    width: 1px;
+    background: var(--vn-border);
+  }
+}
+
+/* Border-only boxes (Integration page section 7) */
+.box-border-only {
+  border: 1px solid var(--vn-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Calendar embed wrapper (GHL booking iframe) */
+.calendar-embed {
+  min-height: 850px;
+}
+
+@media (max-width: 575.98px) {
+  .calendar-embed {
+    min-height: 720px;
+  }
+}
+
 /* Links */
 a.link-ink {
   color: var(--vn-black);
@@ -555,33 +622,15 @@ a.link-ink:hover {
   color: var(--vn-muted-on-dark);
 }
 
-/* Comparison table */
-.comparison-table th,
-.comparison-table td {
-  padding: 0.9rem 0.75rem;
+/* Waitlist embed */
+.waitlist-embed {
+  height: 592px;
 }
 
-.comparison-table tbody tr {
-  border-top: 1px solid var(--vn-border);
-}
-
-.bg-ink .comparison-table tbody tr {
-  border-top: 1px solid var(--vn-border-on-dark);
-}
-
-.bg-ink .comparison-table {
-  --bs-table-bg: transparent;
-  --bs-table-color: rgba(255, 255, 255, 0.88);
-  --bs-table-border-color: var(--vn-border-on-dark);
-}
-
-.bg-ink .comparison-table th,
-.bg-ink .comparison-table td {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.bg-ink .comparison-table thead th {
-  color: rgba(255, 255, 255, 0.72);
+@media (min-width: 768px) {
+  .waitlist-embed {
+    height: 620px;
+  }
 }
 
 /* Final CTA band */
@@ -613,50 +662,4 @@ a.link-ink:hover {
 
 .text-gold {
   color: var(--vn-gold-accent) !important;
-}
-
-/* Modal */
-.modal-content {
-  border-radius: 1rem;
-}
-
-.plan-toggle {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-
-@media (min-width: 576px) {
-  .plan-toggle {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.plan-label {
-  display: block;
-  width: 100%;
-  padding: 0.9rem 1rem;
-  border-radius: 0.9rem;
-  border: 1px solid var(--vn-border);
-  background: #fff;
-  cursor: pointer;
-  transition: border-color 180ms ease, transform 180ms ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .plan-label {
-    transition: none;
-  }
-}
-
-.btn-check:checked + .plan-label {
-  border-color: rgba(182, 159, 109, 0.7);
-  background: rgba(237, 210, 141, 0.18);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .plan-label:hover {
-    transform: translateY(-1px);
-    border-color: rgba(182, 159, 109, 0.6);
-  }
 }

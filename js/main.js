@@ -4,71 +4,130 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // Checkout modal (if present)
+  // Lead modal behavior (Unshackled book page)
   (() => {
-    const modalEl = document.getElementById('checkoutModal');
+    const modalEl = document.getElementById('leadModal');
     if (!modalEl) return;
 
-    const planNameEl = modalEl.querySelector('[data-plan-name]');
-    const planPriceEl = modalEl.querySelector('[data-plan-price]');
-    const vipNoteEl = modalEl.querySelector('[data-vip-note]');
+    // Bootstrap is required for this modal.
+    const bs = window.bootstrap;
+    if (!bs?.Modal) return;
 
-    const formEl = document.getElementById('checkoutForm');
-    const successEl = document.getElementById('checkoutSuccess');
-    const submitBtn = document.getElementById('checkoutSubmit');
+    const leadModal = bs.Modal.getOrCreateInstance(modalEl, {
+      backdrop: 'static',
+      keyboard: true
+    });
 
-    const planInputs = Array.from(modalEl.querySelectorAll('input[type="radio"][name="plan"]'));
-    const hiddenPlanInput = formEl ? formEl.querySelector('input[name="selectedPlan"]') : null;
+    const formPanel = document.getElementById('leadModalFormPanel');
+    const successPanel = document.getElementById('leadModalSuccessPanel');
+    const form = document.getElementById('leadForm');
+    const statusEl = document.getElementById('leadFormStatus');
 
-    const PLANS = {
-      core: { key: 'core', label: 'Core Experience', priceText: '$27 USD' },
-      vip: { key: 'vip', label: 'VIP Experience', priceText: '$77 USD' }
-    };
+    const countdownEl = document.getElementById('leadCloseCountdown');
+    const downloadBtn = document.getElementById('leadDownloadBtn');
+    const closeNowBtn = document.getElementById('leadCloseNow');
 
-    function resetModalState() {
-      if (successEl) successEl.hidden = true;
-      if (formEl) formEl.hidden = false;
-      if (submitBtn) submitBtn.disabled = false;
+    let intervalId = null;
+    let remainingMs = 10000;
+    let lastTick = 0;
+
+    function clearTimer() {
+      if (intervalId) {
+        window.clearInterval(intervalId);
+        intervalId = null;
+      }
     }
 
-    function setPlan(planKey) {
-      const plan = PLANS[planKey] || PLANS.core;
-
-      planInputs.forEach((input) => {
-        input.checked = input.value === plan.key;
-      });
-
-      if (planNameEl) planNameEl.textContent = plan.label;
-      if (planPriceEl) planPriceEl.textContent = plan.priceText;
-      if (hiddenPlanInput) hiddenPlanInput.value = plan.key;
-
-      if (vipNoteEl) vipNoteEl.hidden = plan.key !== 'vip';
+    function setPanels(showSuccess) {
+      if (formPanel) formPanel.classList.toggle('d-none', showSuccess);
+      if (successPanel) successPanel.classList.toggle('d-none', !showSuccess);
     }
 
-    modalEl.addEventListener('show.bs.modal', (event) => {
-      const trigger = event.relatedTarget;
-      const planFromTrigger = trigger?.getAttribute?.('data-plan') || 'core';
+    function setStatus(msg) {
+      if (statusEl) statusEl.textContent = msg;
+    }
 
-      resetModalState();
-      setPlan(planFromTrigger);
+    function resetCountdown() {
+      remainingMs = 10000;
+      lastTick = Date.now();
+      if (countdownEl) countdownEl.textContent = '10';
+    }
+
+    function updateCountdown() {
+      const seconds = Math.max(0, Math.ceil(remainingMs / 1000));
+      if (countdownEl) countdownEl.textContent = String(seconds);
+    }
+
+    function startInactivityCountdown() {
+      clearTimer();
+      resetCountdown();
+
+      const onActivity = () => {
+        resetCountdown();
+      };
+
+      const activityEvents = ['click', 'keydown', 'focusin', 'touchstart', 'pointerdown'];
+      activityEvents.forEach((evt) => modalEl.addEventListener(evt, onActivity, { passive: true }));
+
+      intervalId = window.setInterval(() => {
+        const now = Date.now();
+        const delta = now - lastTick;
+        lastTick = now;
+        remainingMs -= delta;
+        updateCountdown();
+
+        if (remainingMs <= 0) {
+          clearTimer();
+          activityEvents.forEach((evt) => modalEl.removeEventListener(evt, onActivity));
+          leadModal.hide();
+        }
+      }, 250);
+
+      // Cleanup activity listeners when modal hides
+      const cleanup = () => {
+        clearTimer();
+        activityEvents.forEach((evt) => modalEl.removeEventListener(evt, onActivity));
+        modalEl.removeEventListener('hidden.bs.modal', cleanup);
+      };
+      modalEl.addEventListener('hidden.bs.modal', cleanup);
+    }
+
+    function resetModal() {
+      setPanels(false);
+      setStatus('');
+      clearTimer();
+      if (form) {
+        form.reset();
+        form.classList.remove('was-validated');
+      }
+      if (countdownEl) countdownEl.textContent = '10';
+    }
+
+    modalEl.addEventListener('show.bs.modal', () => {
+      resetModal();
     });
 
     modalEl.addEventListener('hidden.bs.modal', () => {
-      resetModalState();
-      setPlan('core');
+      resetModal();
     });
 
-    planInputs.forEach((input) => {
-      input.addEventListener('change', () => {
-        if (input.checked) setPlan(input.value);
-      });
+    closeNowBtn?.addEventListener('click', () => {
+      leadModal.hide();
     });
 
-    formEl?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (submitBtn) submitBtn.disabled = true;
-      if (formEl) formEl.hidden = true;
-      if (successEl) successEl.hidden = false;
+      setStatus('');
+
+      form.classList.add('was-validated');
+      if (!form.checkValidity()) {
+        setStatus('Please complete the required fields.');
+        return;
+      }
+
+      setPanels(true);
+      downloadBtn?.focus?.();
+      startInactivityCountdown();
     });
   })();
 
