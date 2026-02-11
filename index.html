@@ -19,6 +19,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
 
@@ -44,54 +48,65 @@
       <!-- 1) Hero -->
       <section id="top" class="section py-5 bg-ink text-white">
         <div class="container">
-          <div class="row align-items-center g-4 g-lg-5">
-            <div class="col-12 col-lg-6">
-              <p class="text-uppercase letter-spaced text-white-50 mb-2">Unchained Challenge™</p>
-
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 text-center">
               <h1 class="display-5 fw-semibold">
-                Unchained™ — A Guided Journey to Break the Cycle, Reclaim Your Power, and Step Into What’s Next
+                Unchained™: Break the Cycle. Reclaim Your Power. Move Forward.
               </h1>
 
               <p class="lead text-white-50 mt-3">
-                For women who are done surviving patterns that no longer serve them — and ready to rise with clarity,
-                confidence, and truth.
+                For women who have done the journaling, the reflecting, and the “inner work” — yet still feel stuck in
+                repeating patterns. Unchained™ is a guided disruption designed to cut through endless introspection,
+                restore clarity, and help you step into what’s next with confidence and truth.
               </p>
 
-              <div class="d-flex flex-column flex-sm-row gap-2 gap-sm-3 mt-4">
-                <button
-                  type="button"
-                  class="btn btn-vn btn-lg"
-                  data-bs-toggle="modal"
-                  data-bs-target="#checkoutModal"
-                  data-plan="core"
-                >
-                  Join the Challenge
-                </button>
-                <a class="btn btn-vn-outline btn-lg" href="#pricing">Choose your experience</a>
-              </div>
-
-              <p class="small text-white-50 mt-3 mb-0">
-                Preview checkout only. Payments are not live yet.
-              </p>
-            </div>
-
-            <div class="col-12 col-lg-6">
-              <div class="card-soft p-2 p-md-3">
-                <div class="ratio ratio-16x9 rounded-3 overflow-hidden bg-black">
+              <div class="card-soft p-2 p-md-3 mt-4">
+                <div class="ratio ratio-16x9 rounded-3 overflow-hidden bg-black hero-video" id="heroVideoShell">
                   <video
+                    id="heroVideo"
                     class="w-100 h-100"
-                    controls
                     preload="metadata"
                     playsinline
+                    muted
+                    poster="/assets/images/unchained-challenge-poster.jpeg"
                     aria-label="Video message from Althea Scurvin"
                   >
                     <source src="/assets/videos/althea-scurvin.mp4" type="video/mp4" />
                     Your browser does not support embedded videos.
                   </video>
+
+                  <button
+                    type="button"
+                    class="hero-video__center-btn"
+                    id="heroPlayToggle"
+                    aria-label="Play video"
+                    aria-pressed="false"
+                  >
+                    <i class="fa-solid fa-play" aria-hidden="true"></i>
+                  </button>
+
+                  <div class="hero-video__overlay" aria-hidden="false">
+                    <div class="hero-video__hint" id="heroUnmuteHint">
+                      <span class="hero-video__hint-text">Unmute to turn on the sound</span>
+                      <span class="hero-video__arrow" aria-hidden="true"></span>
+                    </div>
+
+                    <button
+                      type="button"
+                      class="btn btn-vn hero-video__mute-btn"
+                      id="heroMuteToggle"
+                      aria-label="Unmute video"
+                      aria-pressed="false"
+                    >
+                      <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+                      <span class="hero-video__mute-text">Unmute</span>
+                    </button>
+                  </div>
                 </div>
-                <p class="small text-white-50 mt-2 mb-0">
-                  Video: Althea Scurvin explains the challenge.
-                </p>
+              </div>
+
+              <div class="mt-4">
+                <a class="btn btn-vn btn-lg" href="#waitlist" role="button">Join the Waitlist</a>
               </div>
             </div>
           </div>
@@ -115,7 +130,7 @@
             <div class="col-12 col-lg-5">
               <div class="card-soft p-3 hover-lift">
                 <img
-                  src="/assets/images/elementor-placeholder-image.png"
+                  src="/assets/images/break-free-from-stagnation.png"
                   class="img-fluid rounded-3"
                   alt=""
                   aria-hidden="true"
@@ -201,71 +216,140 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
-              <h2 class="h2 fw-semibold">What is Included (The Experience)</h2>
-              <p class="text-vn-muted mt-3">
-                The challenge is designed to fit into your real life with a 10–15 minute daily commitment. Every day
-                includes:
-              </p>
-
-              <div class="row g-3 mt-1">
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="card-soft p-4 h-100 hover-lift text-center">
-                    <div class="icon-circle mb-3"><i class="bi bi-journal-text" aria-hidden="true"></i></div>
-                    <h3 class="h6 fw-semibold mb-2">Truth-based reflection</h3>
-                    <p class="small text-vn-muted mb-0">Replace confusion with clarity.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="card-soft p-4 h-100 hover-lift text-center">
-                    <div class="icon-circle mb-3"><i class="bi bi-lightning-charge" aria-hidden="true"></i></div>
-                    <h3 class="h6 fw-semibold mb-2">Conscious interruption</h3>
-                    <p class="small text-vn-muted mb-0">Break automatic loops gently.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="card-soft p-4 h-100 hover-lift text-center">
-                    <div class="icon-circle mb-3"><i class="bi bi-heart-pulse" aria-hidden="true"></i></div>
-                    <h3 class="h6 fw-semibold mb-2">Guided meditation</h3>
-                    <p class="small text-vn-muted mb-0">3–6 minutes for nervous system support.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="card-soft p-4 h-100 hover-lift text-center">
-                    <div class="icon-circle mb-3"><i class="bi bi-camera-video" aria-hidden="true"></i></div>
-                    <h3 class="h6 fw-semibold mb-2">Live sessions</h3>
-                    <p class="small text-vn-muted mb-0">Opening &amp; Closing with Althea.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="card-soft p-4 h-100 hover-lift text-center">
-                    <div class="icon-circle mb-3"><i class="bi bi-book" aria-hidden="true"></i></div>
-                    <h3 class="h6 fw-semibold mb-2">Digital workbook</h3>
-                    <p class="small text-vn-muted mb-0">Track reflections and progress.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="card-soft p-4 h-100 hover-lift text-center">
-                    <div class="icon-circle mb-3"><i class="bi bi-people" aria-hidden="true"></i></div>
-                    <h3 class="h6 fw-semibold mb-2">Safe community space</h3>
-                    <p class="small text-vn-muted mb-0">Low-pressure, values-aligned.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-soft p-4 mt-3 hover-lift">
-                <div class="row align-items-center g-3">
-                  <div class="col-12 col-lg-8">
-                    <h3 class="h6 fw-semibold mb-1">Daily commitment</h3>
-                    <p class="text-vn-muted mb-0">10–15 minutes a day — designed for real life.</p>
-                  </div>
-                  <div class="col-12 col-lg-4 text-lg-end">
-                    <span class="badge badge-vn">Not therapy</span>
-                  </div>
-                </div>
-                <p class="small text-vn-muted mb-0 mt-3">
-                  Note: This is not therapy, counseling, or crisis intervention.
+              <div class="text-center">
+                <h2 class="h2 fw-semibold">What is Included (The Experience)</h2>
+                <p class="text-vn-muted mt-3 mb-0">
+                  The challenge is designed to fit into your real life with a 10–15 minute daily commitment. Every day
+                  includes:
                 </p>
               </div>
+
+              <div class="row g-3 mt-4">
+                <div class="col-12 col-md-6">
+                  <div class="card-soft p-4 h-100 hover-lift">
+                    <div class="d-flex gap-3 align-items-start">
+                      <div class="icon-circle flex-shrink-0">
+                        <i class="bi bi-journal-text" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="h6 fw-semibold mb-2">Daily Truth-Based Reflections</h3>
+                        <p class="small text-vn-muted mb-0">
+                          Each day begins with a short, guided reflection designed to replace confusion with truth.
+                          Rather than long hours of journaling, these 10–15 minute daily sessions provide a “Truth
+                          Prompt” to help you identify the exact patterns keeping you stuck without the overwhelm of
+                          “homework marathons”. These reflections ensure that clarity doesn't remain just an idea but
+                          becomes a practical starting point for change.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="card-soft p-4 h-100 hover-lift">
+                    <div class="d-flex gap-3 align-items-start">
+                      <div class="icon-circle flex-shrink-0">
+                        <i class="bi bi-lightning-charge" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="h6 fw-semibold mb-2">Conscious Interruptions &amp; Grounded Actions</h3>
+                        <p class="small text-vn-muted mb-0">
+                          Following the reflection, you will engage in one practical action or “activation” designed for
+                          real-life application. For example, you might use a “Loop Break Exercise” to identify a
+                          trigger, your automatic response, and the ultimate cost of that pattern. This component is about
+                          conscious disruption, allowing you to experience yourself choosing differently in real-time
+                          rather than just talking about it.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="card-soft p-4 h-100 hover-lift">
+                    <div class="d-flex gap-3 align-items-start">
+                      <div class="icon-circle flex-shrink-0">
+                        <i class="bi bi-heart-pulse" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="h6 fw-semibold mb-2">Guided Meditations (3–6 Minutes)</h3>
+                        <p class="small text-vn-muted mb-0">
+                          Every day includes a short, grounded meditation facilitated by practitioner Dhiren,
+                          specifically curated to support nervous-system regulation and integration. Unlike traditional
+                          “spiritual fluff,” these meditations are used as stabilizers after truth is named and actions
+                          are taken to help your body “catch up” to your new reality. They are mobile-friendly and
+                          designed to prevent emotional whiplash or collapse during the transformation process.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="card-soft p-4 h-100 hover-lift">
+                    <div class="d-flex gap-3 align-items-start">
+                      <div class="icon-circle flex-shrink-0">
+                        <i class="bi bi-camera-video" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="h6 fw-semibold mb-2">Live Opening &amp; Closing Sessions</h3>
+                        <ul class="small text-vn-muted mb-0 ps-3">
+                          <li>
+                            <strong>Live Opening Session:</strong> Facilitated by Althea Scurvin, this session focuses on
+                            orientation, intention setting, and creating a grounded entry point for the 7-day journey.
+                          </li>
+                          <li>
+                            <strong>Live Closing Integration Session:</strong> This final session focuses on clarity,
+                            embodiment, and defining your next steps without any “hard upsell” pressure.
+                          </li>
+                          <li><strong>Replays Included:</strong> All live sessions are recorded and provided.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="card-soft p-4 h-100 hover-lift">
+                    <div class="d-flex gap-3 align-items-start">
+                      <div class="icon-circle flex-shrink-0">
+                        <i class="bi bi-book" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="h6 fw-semibold mb-2">Digital Reflection Workbook</h3>
+                        <p class="small text-vn-muted mb-0">
+                          Participants receive a comprehensive digital workbook to guide their journey. This tool is
+                          designed for awareness without overload, providing a structured space to track pattern
+                          identification, new standard declarations, and future-self alignment reflections.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="card-soft p-4 h-100 hover-lift">
+                    <div class="d-flex gap-3 align-items-start">
+                      <div class="icon-circle flex-shrink-0">
+                        <i class="bi bi-people" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="h6 fw-semibold mb-2">Safe, Low-Pressure Community Space</h3>
+                        <p class="small text-vn-muted mb-0">
+                          The challenge includes access to a moderated, values-aligned community space. This environment
+                          is strictly designed to be safe, meaning there is no pressure to overshare, no “comparison
+                          culture,” and no forced “trauma dumping”. You are encouraged to participate at whatever level
+                          feels right for you, including participating entirely privately.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="small text-vn-muted text-center mt-4 mb-0">
+                Note: This is not therapy, counseling, or crisis intervention.
+              </p>
             </div>
           </div>
         </div>
@@ -578,35 +662,52 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
-              <h2 class="h2 fw-semibold">Who This Is For</h2>
+              <h2 class="h2 fw-semibold text-center">Who This Is For</h2>
 
               <div class="row g-3 mt-2">
                 <div class="col-12 col-lg-6">
-                  <div class="card-soft p-4 h-100 hover-lift">
-                    <h3 class="h5 fw-semibold">This is for you if you are:</h3>
-                    <ul class="text-vn-muted mt-3 mb-0">
-                      <li>Healing from toxic relationships or environments.</li>
-                      <li>At a personal or professional crossroads.</li>
-                      <li>Emotionally aware but still stuck in the same cycles.</li>
-                      <li>Ready to reclaim yourself but have limited time and capacity.</li>
+                  <div class="card-soft p-4 h-100 hover-lift border border-2 border-success">
+                    <h3 class="h5 fw-semibold text-center">For you if you are:</h3>
+                    <ul class="list-unstyled text-vn-muted mt-3 mb-0 d-grid gap-2 for-you-list">
+                      <li class="d-flex justify-content-start align-items-start gap-2 fs-5">
+                        <i class="fa-solid fa-circle-check text-success mt-1" aria-hidden="true"></i>
+                        <span>Healing from toxic relationships or environments.</span>
+                      </li>
+                      <li class="d-flex justify-content-start align-items-start gap-2 fs-5">
+                        <i class="fa-solid fa-circle-check text-success mt-1" aria-hidden="true"></i>
+                        <span>At a personal or professional crossroads.</span>
+                      </li>
+                      <li class="d-flex justify-content-start align-items-start gap-2 fs-5">
+                        <i class="fa-solid fa-circle-check text-success mt-1" aria-hidden="true"></i>
+                        <span>Emotionally aware but still stuck in the same cycles.</span>
+                      </li>
+                      <li class="d-flex justify-content-start align-items-start gap-2 fs-5">
+                        <i class="fa-solid fa-circle-check text-success mt-1" aria-hidden="true"></i>
+                        <span>Ready to reclaim yourself but have limited time and capacity.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
 
                 <div class="col-12 col-lg-6">
-                  <div class="card-soft p-4 h-100 hover-lift">
-                    <h3 class="h5 fw-semibold">This is NOT for you if you are:</h3>
-                    <ul class="text-vn-muted mt-3 mb-0">
-                      <li>Seeking therapy, counseling, or crisis intervention.</li>
-                      <li>Looking for a "quick fix" or passive motivational push.</li>
-                      <li>Wanting to stay in analysis loops without taking action.</li>
+                  <div class="card-soft p-4 h-100 hover-lift border border-2 border-danger">
+                    <h3 class="h5 fw-semibold text-center">Not for you if you are</h3>
+                    <ul class="list-unstyled text-vn-muted mt-3 mb-0 d-grid gap-2 for-you-list">
+                      <li class="d-flex justify-content-start align-items-start gap-2 fs-5">
+                        <i class="fa-solid fa-circle-xmark text-danger mt-1" aria-hidden="true"></i>
+                        <span>Seeking therapy, counseling, or crisis intervention.</span>
+                      </li>
+                      <li class="d-flex justify-content-start align-items-start gap-2 fs-5">
+                        <i class="fa-solid fa-circle-xmark text-danger mt-1" aria-hidden="true"></i>
+                        <span>Looking for a "quick fix" or passive motivational push.</span>
+                      </li>
+                      <li class="d-flex justify-content-start align-items-start gap-2 fs-5">
+                        <i class="fa-solid fa-circle-xmark text-danger mt-1" aria-hidden="true"></i>
+                        <span>Wanting to stay in analysis loops without taking action.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
-              </div>
-
-              <div class="mt-4">
-                <a class="link-ink" href="#pricing">Jump to pricing →</a>
               </div>
             </div>
           </div>
@@ -618,42 +719,111 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
-              <h2 class="h2 fw-semibold">Participant Outcomes</h2>
-              <p class="text-vn-muted mt-3">
+              <h2 class="h2 fw-semibold text-center">Participant Outcomes</h2>
+              <p class="text-vn-muted mt-3 text-center">
                 While results depend on personal participation, women who complete this challenge often report:
               </p>
 
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <div class="card-soft p-4 h-100 hover-lift">
-                    <div class="d-flex gap-3">
-                      <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
-                      <p class="mb-0 text-vn-muted">Clear awareness of their stuck patterns.</p>
+              <div class="outcomes-grid">
+                <div class="outcomes-col">
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Clarity Without Overwhelm</h3>
+                      <p class="text-vn-muted mb-0">
+                        You will move from a state of confusion to one of truth, gaining a clear understanding of your
+                        patterns and what you need next without the need to relive the past.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Conscious Disruption of Cycles</h3>
+                      <p class="text-vn-muted mb-0">
+                        You will experience yourself choosing differently in real-time by identifying triggers and
+                        interrupting the automatic emotional loops that have previously kept you stuck.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Stabilized Self-Trust</h3>
+                      <p class="text-vn-muted mb-0">
+                        By re-anchoring your internal authority, you will stop outsourcing your decisions and start
+                        feeling a consistent, steady sense of confidence in your own leadership.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Relief from Emotional Labor</h3>
+                      <p class="text-vn-muted mb-0">
+                        You will learn to identify where your energy is leaking and release the heavy burden of carrying
+                        everyone else’s emotional needs, leading to increased presence in your own life.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Alignment with New Standards</h3>
+                      <p class="text-vn-muted mb-0">
+                        Your daily decisions will begin to match your internal truth as you declare what is no longer
+                        negotiable and establish new standards for how you live and lead.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-md-6">
-                  <div class="card-soft p-4 h-100 hover-lift">
-                    <div class="d-flex gap-3">
-                      <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
-                      <p class="mb-0 text-vn-muted">Increased confidence and emotional steadiness.</p>
+
+                <div class="outcomes-col">
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Nervous System Stabilization</h3>
+                      <p class="text-vn-muted mb-0">
+                        Through grounded integration, you will learn to regulate your system so that change feels calm
+                        rather than chaotic, preventing the “emotional whiplash” or collapse that often follows personal
+                        shifts.
+                      </p>
                     </div>
                   </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="card-soft p-4 h-100 hover-lift">
-                    <div class="d-flex gap-3">
-                      <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
-                      <p class="mb-0 text-vn-muted">Relief from carrying heavy emotional labor.</p>
+
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Language for Your Truth</h3>
+                      <p class="text-vn-muted mb-0">
+                        You will walk away with the specific words needed to express your truth and a clear, unchained
+                        direction for your next season of growth.
+                      </p>
                     </div>
                   </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="card-soft p-4 h-100 hover-lift">
-                    <div class="d-flex gap-3">
-                      <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
-                      <p class="mb-0 text-vn-muted">
-                        Feeling "Unchained"—clear, calm, and self-led rather than emotionally raw.
+
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">A Shift in Identity</h3>
+                      <p class="text-vn-muted mb-0">
+                        You will move from the feeling of “I don’t know what’s wrong with me” to a state of “I
+                        understand myself—and I trust my next step”.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="outcome-item">
+                    <div class="icon-circle flex-shrink-0"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                    <div class="outcome-copy">
+                      <h3 class="h6 fw-semibold mb-1">Sustainable Movement</h3>
+                      <p class="text-vn-muted mb-0">
+                        You will leave the experience feeling grounded, clear, and self-led, possessing actionable tools
+                        for self-mastery and a deeper connection to your purpose and identity.
                       </p>
                     </div>
                   </div>
@@ -664,263 +834,300 @@
         </div>
       </section>
 
-      <!-- 9) Pricing -->
-      <section id="pricing" class="section py-5 bg-ink text-white">
+      <!-- 9) Join the Waitlist -->
+      <section id="waitlist" class="section py-5 bg-ink text-white">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
-              <h2 class="h2 fw-semibold">Choose Your Experience</h2>
-              <p class="text-white-50 mt-3">
-                We believe transformation should not be gated by privilege, which is why we offer globally accessible
-                pricing.
-              </p>
-
-              <div class="row g-3 mt-2">
-                <div class="col-12 col-lg-6">
-                  <div class="card-soft p-4 h-100 hover-lift">
-                    <div class="d-flex justify-content-between align-items-start gap-3">
-                      <div>
-                        <h3 class="h4 fw-semibold mb-1">Core Experience</h3>
-                        <p class="text-white-50 mb-0">Complete experience</p>
-                      </div>
-                      <div class="text-end">
-                        <p class="h2 mb-0">$27</p>
-                        <p class="small text-white-50 mb-0">USD</p>
-                      </div>
-                    </div>
-
-                    <hr class="my-4" />
-
-                    <ul class="text-white-50 mb-4">
-                      <li>7-Day Curriculum — Full Access</li>
-                      <li>Live Sessions — Opening &amp; Closing</li>
-                      <li>Community &amp; Workbook — Included</li>
-                      <li>Coaching Proximity — Digital/Group</li>
-                      <li>Integration — Standard</li>
-                      <li>Bonuses — N/A</li>
-                    </ul>
-
-                    <button
-                      type="button"
-                      class="btn btn-vn w-100"
-                      data-bs-toggle="modal"
-                      data-bs-target="#checkoutModal"
-                      data-plan="core"
-                    >
-                      Choose Core
-                    </button>
-                  </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                  <div class="card-soft p-4 h-100 hover-lift border-gold">
-                    <div class="d-flex justify-content-between align-items-start gap-3">
-                      <div>
-                        <h3 class="h4 fw-semibold mb-1">VIP Experience</h3>
-                        <p class="text-white-50 mb-0">Optional upgrade</p>
-                      </div>
-                      <div class="text-end">
-                        <p class="h2 mb-0">$77</p>
-                        <p class="small text-white-50 mb-0">USD</p>
-                      </div>
-                    </div>
-
-                    <hr class="my-4" />
-
-                    <ul class="text-white-50 mb-2">
-                      <li>7-Day Curriculum — Full Access</li>
-                      <li>Live Sessions — Opening &amp; Closing</li>
-                      <li>Community &amp; Workbook — Included</li>
-                      <li>Coaching Proximity — Small-group coaching with Althea</li>
-                      <li>Integration — Deeper embodiment guidance</li>
-                      <li>Bonuses — Bonus Vas Noble tools &amp; Priority Access</li>
-                    </ul>
-                    <p class="small text-white-50 mb-4">
-                      VIP offers more proximity and guided integration—optional, not required.
-                    </p>
-
-                    <button
-                      type="button"
-                      class="btn btn-vn-outline-gold w-100"
-                      data-bs-toggle="modal"
-                      data-bs-target="#checkoutModal"
-                      data-plan="vip"
-                    >
-                      Choose VIP
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-soft p-4 mt-4">
-                <h3 class="h5 fw-semibold mb-3">Feature Comparison</h3>
-                <div class="table-responsive">
-                  <table class="table table-borderless align-middle mb-0 comparison-table">
-                    <thead>
-                      <tr class="small text-white-50">
-                        <th scope="col">Feature</th>
-                        <th scope="col">Core Experience ($27 USD)</th>
-                        <th scope="col">VIP Experience ($77 USD)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">7-Day Curriculum</th>
-                        <td>Full Access</td>
-                        <td>Full Access</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Live Sessions</th>
-                        <td>Opening &amp; Closing</td>
-                        <td>Opening &amp; Closing</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Community &amp; Workbook</th>
-                        <td>Included</td>
-                        <td>Included</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Coaching Proximity</th>
-                        <td>Digital/Group</td>
-                        <td>Small-group coaching with Althea</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Integration</th>
-                        <td>Standard</td>
-                        <td>Deeper embodiment guidance</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Bonuses</th>
-                        <td>N/A</td>
-                        <td>Bonus Vas Noble tools &amp; Priority Access</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <p class="small text-white-50 mt-3 mb-0">
-                  Note: The Core experience is complete. VIP is optional and simply offers more intimate proximity.
+              <div class="text-center">
+                <h2 class="h2 fw-semibold">Join the Waitlist</h2>
+                <p class="lead text-white-50 mt-3 mb-0">
+                  If you feel drawn to this experience, you’re welcome to add your name to the waitlist. We’ll share
+                  updates and next steps so you can explore when it feels aligned for you.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- 10) Access Fund -->
-      <section id="access-fund" class="section py-5 bg-panel">
-        <div class="container">
-          <div class="row align-items-center g-4 g-lg-5 justify-content-center">
-            <div class="col-12 col-lg-7">
-              <h2 class="h2 fw-semibold">The Unchained Access Fund</h2>
-              <p class="text-vn-muted mt-3 mb-0">
-                If you are in financial transition or recovering from a toxic environment and even $27 is a stretch, we
-                offer no-questions-asked scholarships. We also invite those who can to "Pay-it-Forward" by contributing
-                to the fund at checkout to support another woman's access.
-              </p>
-            </div>
-            <div class="col-12 col-lg-5">
-              <div class="card-soft p-3 hover-lift">
-                <img
-                  src="/assets/images/elementor-placeholder-image.png"
-                  class="img-fluid rounded-3"
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div class="card-soft p-3 p-md-4 mt-4">
+                <div class="waitlist-embed">
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/Mez8WuhXKzHvsD6OoDSt"
+                    style="width:100%;height:100%;border:none;border-radius:3px"
+                    id="inline-Mez8WuhXKzHvsD6OoDSt"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Waitlist Form - The Unchained Challenge"
+                    data-height="592"
+                    data-layout-iframe-id="inline-Mez8WuhXKzHvsD6OoDSt"
+                    data-form-id="Mez8WuhXKzHvsD6OoDSt"
+                    title="Waitlist Form - The Unchained Challenge"
+                  ></iframe>
+                </div>
               </div>
+
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 11) FAQ -->
+      <!-- 10) FAQ -->
       <section id="faq" class="section py-5">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
-              <h2 class="h2 fw-semibold">Frequently Asked Questions</h2>
+              <h2 class="h2 fw-semibold text-center">Frequently Asked Questions</h2>
 
-              <div class="accordion accordion-vn mt-4" id="faqAccordion">
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id="faq1-h">
-                    <button
-                      class="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq1"
-                      aria-expanded="true"
-                      aria-controls="faq1"
-                    >
-                      Is this therapy?
-                    </button>
-                  </h3>
-                  <div
-                    id="faq1"
-                    class="accordion-collapse collapse show"
-                    aria-labelledby="faq1-h"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body text-vn-muted">
-                      No. It is a truth-based self-leadership activation. It does not replace professional mental health
-                      care.
+              <div class="mt-4">
+                <h3 class="h5 fw-semibold mb-3">General &amp; Decision-Making</h3>
+                <div class="accordion accordion-vn" id="faqGeneral">
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqGen1-h">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqGen1" aria-expanded="true" aria-controls="faqGen1">
+                        Is this therapy or a replacement for therapy?
+                      </button>
+                    </h4>
+                    <div id="faqGen1" class="accordion-collapse collapse show" aria-labelledby="faqGen1-h" data-bs-parent="#faqGeneral">
+                      <div class="accordion-body text-vn-muted">
+                        No. The Unchained Challenge™ is not therapy and does not replace professional mental health care.
+                        It is a truth-based, self-leadership activation designed to help you interrupt patterns and gain
+                        clarity, and many women participate alongside their existing therapy or coaching.
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id="faq2-h">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq2"
-                      aria-expanded="false"
-                      aria-controls="faq2"
-                    >
-                      How much time does it take?
-                    </button>
-                  </h3>
-                  <div
-                    id="faq2"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="faq2-h"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body text-vn-muted">
-                      Only 10–15 minutes per day. It is designed for busy women with full lives.
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqGen2-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqGen2" aria-expanded="false" aria-controls="faqGen2">
+                        What makes this different from other healing programs?
+                      </button>
+                    </h4>
+                    <div id="faqGen2" class="accordion-collapse collapse" aria-labelledby="faqGen2-h" data-bs-parent="#faqGeneral">
+                      <div class="accordion-body text-vn-muted">
+                        Most programs rely on cognitive overload or endless talking that keeps women looping in their pain.
+                        Unchained™ follows a disruptive sequence of Truth → Disruption → Regulation → Integration to make
+                        change sustainable without wasting time.
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id="faq3-h">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq3"
-                      aria-expanded="false"
-                      aria-controls="faq3"
-                    >
-                      What if I can't attend live?
-                    </button>
-                  </h3>
-                  <div
-                    id="faq3"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="faq3-h"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body text-vn-muted">
-                      Replays are provided for all sessions, so you can move at your own pace across any time zone.
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqGen3-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqGen3" aria-expanded="false" aria-controls="faqGen3">
+                        Is this spiritual or religious?
+                      </button>
+                    </h4>
+                    <div id="faqGen3" class="accordion-collapse collapse" aria-labelledby="faqGen3-h" data-bs-parent="#faqGeneral">
+                      <div class="accordion-body text-vn-muted">
+                        No. The challenge is not religious or faith-based. It is grounded, practical, and focused on truth,
+                        self-leadership, and conscious choice.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqGen4-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqGen4" aria-expanded="false" aria-controls="faqGen4">
+                        Who is leading this challenge?
+                      </button>
+                    </h4>
+                    <div id="faqGen4" class="accordion-collapse collapse" aria-labelledby="faqGen4-h" data-bs-parent="#faqGeneral">
+                      <div class="accordion-body text-vn-muted">
+                        The challenge is led by Althea Scurvin, the founder of Vas Noble and a transformational leader with
+                        over 25 years of experience in emotional resilience and professional excellence.
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <p class="small text-vn-muted mt-3 mb-0">
+              <div class="mt-5">
+                <h3 class="h5 fw-semibold mb-3">The Experience &amp; Commitment</h3>
+                <div class="accordion accordion-vn" id="faqExperience">
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqExp1-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqExp1" aria-expanded="false" aria-controls="faqExp1">
+                        How much time does this really take each day?
+                      </button>
+                    </h4>
+                    <div id="faqExp1" class="accordion-collapse collapse" aria-labelledby="faqExp1-h" data-bs-parent="#faqExperience">
+                      <div class="accordion-body text-vn-muted">
+                        The challenge is designed for busy women and requires only 10–15 minutes per day for seven days.
+                        There are no long homework assignments or emotional marathons.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqExp2-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqExp2" aria-expanded="false" aria-controls="faqExp2">
+                        What happens each day?
+                      </button>
+                    </h4>
+                    <div id="faqExp2" class="accordion-collapse collapse" aria-labelledby="faqExp2-h" data-bs-parent="#faqExperience">
+                      <div class="accordion-body text-vn-muted">
+                        Every day follows a clean structure: one short reflection, one grounded activation or decision, and
+                        one guided meditation (3–6 minutes) to help your system integrate the shift.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqExp3-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqExp3" aria-expanded="false" aria-controls="faqExp3">
+                        Do I have to attend the live sessions?
+                      </button>
+                    </h4>
+                    <div id="faqExp3" class="accordion-collapse collapse" aria-labelledby="faqExp3-h" data-bs-parent="#faqExperience">
+                      <div class="accordion-body text-vn-muted">
+                        No. Live sessions are optional. Replays are provided for everything so you can participate on your
+                        own schedule regardless of your time zone.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqExp4-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqExp4" aria-expanded="false" aria-controls="faqExp4">
+                        Is meditation required?
+                      </button>
+                    </h4>
+                    <div id="faqExp4" class="accordion-collapse collapse" aria-labelledby="faqExp4-h" data-bs-parent="#faqExperience">
+                      <div class="accordion-body text-vn-muted">
+                        Meditation is included as a support tool to help your nervous system catch up to your truth, but it
+                        is not a requirement. You can still fully participate if you choose to skip it.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqExp5-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqExp5" aria-expanded="false" aria-controls="faqExp5">
+                        Will this be emotionally intense or triggering?
+                      </button>
+                    </h4>
+                    <div id="faqExp5" class="accordion-collapse collapse" aria-labelledby="faqExp5-h" data-bs-parent="#faqExperience">
+                      <div class="accordion-body text-vn-muted">
+                        The challenge is intentionally designed to be grounded, not overwhelming. It does not push for
+                        emotional excavation or reliving trauma; the focus is strictly on clarity and forward movement.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <h3 class="h5 fw-semibold mb-3">Participation &amp; Privacy</h3>
+                <div class="accordion accordion-vn" id="faqPrivacy">
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqPriv1-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPriv1" aria-expanded="false" aria-controls="faqPriv1">
+                        Do I have to share personal stories or participate in the community?
+                      </button>
+                    </h4>
+                    <div id="faqPriv1" class="accordion-collapse collapse" aria-labelledby="faqPriv1-h" data-bs-parent="#faqPrivacy">
+                      <div class="accordion-body text-vn-muted">
+                        No. Sharing is always optional, and you are welcome to participate entirely quietly and privately.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqPriv2-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPriv2" aria-expanded="false" aria-controls="faqPriv2">
+                        What if I miss a day or fall behind?
+                      </button>
+                    </h4>
+                    <div id="faqPriv2" class="accordion-collapse collapse" aria-labelledby="faqPriv2-h" data-bs-parent="#faqPrivacy">
+                      <div class="accordion-body text-vn-muted">
+                        You are not behind. The structure is flexible, replays are always available, and you are encouraged
+                        to move at your own pace.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqPriv3-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPriv3" aria-expanded="false" aria-controls="faqPriv3">
+                        What if I don't experience a dramatic transformation?
+                      </button>
+                    </h4>
+                    <div id="faqPriv3" class="accordion-collapse collapse" aria-labelledby="faqPriv3-h" data-bs-parent="#faqPrivacy">
+                      <div class="accordion-body text-vn-muted">
+                        That is normal. Transformation isn't always dramatic; feeling calmer, clearer, and more self-trusting
+                        is often the most meaningful shift.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <h3 class="h5 fw-semibold mb-3">Pricing, Access, &amp; Tiers</h3>
+                <div class="accordion accordion-vn" id="faqPricing">
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqPrice1-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPrice1" aria-expanded="false" aria-controls="faqPrice1">
+                        Why is this priced at $27?
+                      </button>
+                    </h4>
+                    <div id="faqPrice1" class="accordion-collapse collapse" aria-labelledby="faqPrice1-h" data-bs-parent="#faqPricing">
+                      <div class="accordion-body text-vn-muted">
+                        Vas Noble intentionally prices the Core experience accessibly to ensure women everywhere—regardless
+                        of financial circumstance or geography—can participate.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqPrice2-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPrice2" aria-expanded="false" aria-controls="faqPrice2">
+                        Is the Core experience enough, or do I need VIP?
+                      </button>
+                    </h4>
+                    <div id="faqPrice2" class="accordion-collapse collapse" aria-labelledby="faqPrice2-h" data-bs-parent="#faqPricing">
+                      <div class="accordion-body text-vn-muted">
+                        The Core experience is complete. VIP is an optional upgrade for those who want closer proximity to
+                        Althea Scurvin and small-group support, but it is not required for transformation.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqPrice3-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPrice3" aria-expanded="false" aria-controls="faqPrice3">
+                        Is there financial assistance if I can't afford it?
+                      </button>
+                    </h4>
+                    <div id="faqPrice3" class="accordion-collapse collapse" aria-labelledby="faqPrice3-h" data-bs-parent="#faqPricing">
+                      <div class="accordion-body text-vn-muted">
+                        Yes. We offer a community-funded Unchained Access Fund and no-questions-asked scholarships because
+                        we believe access is dignity.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h4 class="accordion-header" id="faqPrice4-h">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPrice4" aria-expanded="false" aria-controls="faqPrice4">
+                        Is this available internationally?
+                      </button>
+                    </h4>
+                    <div id="faqPrice4" class="accordion-collapse collapse" aria-labelledby="faqPrice4-h" data-bs-parent="#faqPricing">
+                      <div class="accordion-body text-vn-muted">
+                        Yes. This challenge is fully digital and designed for a global audience, taking into account
+                        different time zones and currency exchanges.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="small text-vn-muted mt-4 mb-0 text-center">
                 If you are in crisis, please seek professional support immediately.
               </p>
             </div>
@@ -938,15 +1145,7 @@
                 You don’t need years, and you don’t need permission. You need one honest interruption.
               </p>
 
-              <button
-                type="button"
-                class="btn btn-vn btn-lg"
-                data-bs-toggle="modal"
-                data-bs-target="#checkoutModal"
-                data-plan="core"
-              >
-                Join The Unchained Challenge™
-              </button>
+              <a class="btn btn-vn btn-lg" href="#waitlist" role="button">Join the Waitlist</a>
             </div>
           </div>
         </div>
@@ -958,172 +1157,6 @@
         <p class="small text-vn-muted mb-0">© <span id="year"></span> Vas Noble</p>
       </div>
     </footer>
-
-    <!-- Checkout Modal -->
-    <div
-      class="modal fade"
-      id="checkoutModal"
-      tabindex="-1"
-      aria-labelledby="checkoutModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header border-0 pb-0">
-            <div>
-              <h2 class="h4 modal-title fw-semibold" id="checkoutModalLabel">Checkout (Coming Soon)</h2>
-              <p class="text-vn-muted mb-0">Preview only. Nothing will be charged.</p>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body pt-3">
-            <fieldset class="mb-3">
-              <legend class="h6 fw-semibold mb-2">Select your plan</legend>
-
-              <div class="plan-toggle" role="radiogroup" aria-label="Plan selection">
-                <div>
-                  <input
-                    class="btn-check"
-                    type="radio"
-                    name="plan"
-                    id="plan-core"
-                    value="core"
-                    autocomplete="off"
-                    checked
-                  />
-                  <label class="plan-label hover-lift" for="plan-core">
-                    <div class="d-flex align-items-baseline justify-content-between gap-3">
-                      <span class="fw-semibold">Core</span>
-                      <span class="fw-semibold">$27</span>
-                    </div>
-                    <div class="small text-vn-muted">Complete experience</div>
-                  </label>
-                </div>
-
-                <div>
-                  <input
-                    class="btn-check"
-                    type="radio"
-                    name="plan"
-                    id="plan-vip"
-                    value="vip"
-                    autocomplete="off"
-                  />
-                  <label class="plan-label hover-lift" for="plan-vip">
-                    <div class="d-flex align-items-baseline justify-content-between gap-3">
-                      <span class="fw-semibold">VIP</span>
-                      <span class="fw-semibold">$77</span>
-                    </div>
-                    <div class="small text-vn-muted">Optional upgrade</div>
-                  </label>
-                </div>
-              </div>
-
-              <p class="small text-vn-muted mt-2 mb-0" data-vip-note hidden>
-                VIP offers more proximity and guided integration—optional, not required.
-              </p>
-            </fieldset>
-
-            <div class="card-soft p-3 mb-3">
-              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
-                <div>
-                  <p class="small text-uppercase letter-spaced text-vn-muted mb-1">You selected</p>
-                  <p class="mb-0 fw-semibold" data-plan-name>Core Experience</p>
-                </div>
-                <div class="text-end">
-                  <p class="small text-uppercase letter-spaced text-vn-muted mb-1">Total</p>
-                  <p class="mb-0 fw-semibold" data-plan-price>$27 USD</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="alert alert-warning border-0" role="alert">
-              <strong>Payments are not live.</strong> Card fields are disabled placeholders. Submitting will show
-              <strong>“Coming soon”</strong> and will not charge anything.
-            </div>
-
-            <form id="checkoutForm" novalidate>
-              <input type="hidden" name="selectedPlan" value="core" />
-
-              <div class="row g-3">
-                <div class="col-12">
-                  <label for="ccNumber" class="form-label">Card number</label>
-                  <input
-                    id="ccNumber"
-                    class="form-control"
-                    type="text"
-                    placeholder="1234 5678 9012 3456"
-                    disabled
-                    aria-disabled="true"
-                  />
-                </div>
-
-                <div class="col-6">
-                  <label for="ccExp" class="form-label">Expiry</label>
-                  <input
-                    id="ccExp"
-                    class="form-control"
-                    type="text"
-                    placeholder="MM / YY"
-                    disabled
-                    aria-disabled="true"
-                  />
-                </div>
-
-                <div class="col-6">
-                  <label for="ccCvc" class="form-label">CVC</label>
-                  <input
-                    id="ccCvc"
-                    class="form-control"
-                    type="text"
-                    placeholder="CVC"
-                    disabled
-                    aria-disabled="true"
-                  />
-                </div>
-
-                <div class="col-12">
-                  <label for="ccZip" class="form-label">ZIP / Postal</label>
-                  <input
-                    id="ccZip"
-                    class="form-control"
-                    type="text"
-                    placeholder="ZIP"
-                    disabled
-                    aria-disabled="true"
-                  />
-                </div>
-
-                <div class="col-12">
-                  <button type="submit" class="btn btn-vn btn-lg w-100" id="checkoutSubmit">
-                    Submit (Coming Soon)
-                  </button>
-                  <p class="small text-vn-muted mt-2 mb-0">No email is collected in this preview.</p>
-                </div>
-              </div>
-            </form>
-
-            <div
-              id="checkoutSuccess"
-              class="card-soft p-4 mt-3"
-              role="status"
-              aria-live="polite"
-              hidden
-            >
-              <h3 class="h5 fw-semibold mb-2">Coming soon</h3>
-              <p class="text-vn-muted mb-0">
-                Checkout isn’t live yet. Nothing was submitted or charged.
-              </p>
-            </div>
-          </div>
-
-          <div class="modal-footer border-0 pt-0">
-            <button type="button" class="btn btn-vn-outline" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
