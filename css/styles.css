@@ -50,6 +50,41 @@ html {
   pointer-events: none;
 }
 
+/* Hero-only: controlled amber warmth (medium) + subtle texture */
+.bg-amber-warm {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, #18120e 0%, #241a14 45%, #1a1410 100%);
+  color: #fff;
+}
+
+.bg-amber-warm::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 35%, rgba(237, 210, 141, 0.14), transparent 55%),
+    radial-gradient(circle at 18% 20%, rgba(182, 159, 109, 0.08), transparent 50%),
+    radial-gradient(circle at 50% 110%, rgba(0, 0, 0, 0.35), transparent 60%),
+    radial-gradient(circle at 50% -30%, rgba(0, 0, 0, 0.45), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-amber-warm::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-amber-warm > * {
+  position: relative;
+  z-index: 2;
+}
+
 .bg-ink-soft {
   background: var(--vn-ink-soft);
   color: #fff;
@@ -662,4 +697,8 @@ a.link-ink:hover {
 
 .text-gold {
   color: var(--vn-gold-accent) !important;
+}
+
+header.py-4 {
+    background: black;
 }
