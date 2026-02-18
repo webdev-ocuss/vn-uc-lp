@@ -1,11 +1,32 @@
+/* Typography: Font definitions */
+@font-face {
+  font-family: 'Deraga';
+  src: url('/assets/fonts/Deraga.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Deraga';
+  src: url('/assets/fonts/Deraga%20Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
+  /* Typography variables */
+  --vn-font-heading: 'Deraga', serif;
+  --vn-font-body: 'Roboto', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+
   --vn-gold-accent: #edd28d;
   --vn-gold: #b69f6d;
   --vn-bg: #f2f1ed;
   --vn-muted: #8f8f8f;
   --vn-black: #111111;
 
-  --vn-panel: #fbfaf7;
+  --vn-panel: #FBF5F1;
   --vn-border: rgba(17, 17, 17, 0.12);
   --vn-shadow-sm: 0 6px 18px rgba(17, 17, 17, 0.12);
   --vn-shadow: 0 18px 48px rgba(17, 17, 17, 0.18);
@@ -15,13 +36,33 @@
   --vn-ink-soft: #141417;
   --vn-muted-on-dark: rgba(255, 255, 255, 0.72);
   --vn-border-on-dark: rgba(182, 159, 109, 0.18);
+
+  --bs-body-font-family: var(--vn-font-body);
+}
+
+/* Apply fonts */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: var(--vn-font-heading);
+  font-weight: 400;
 }
 
 body {
+  font-family: var(--vn-font-body);
+  font-weight: 300;
   background: var(--vn-bg);
   color: var(--vn-black);
   text-rendering: optimizeLegibility;
 }
+
+strong,
+b,
+.fw-semibold,
+.fw-bold {
+  font-weight: 500;
+}
+
+
 
 html {
   scroll-behavior: smooth;
@@ -35,8 +76,22 @@ html {
 
 /* Mixed-theme dark bands */
 .bg-ink {
-  background: var(--vn-ink);
-  color: #fff;
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(196, 122, 44, 0.22) 0%,
+      rgba(138, 90, 43, 0.14) 22%,
+      rgba(42, 28, 20, 0.08) 40%,
+      rgba(11, 11, 12, 0.96) 68%,
+      rgba(11, 11, 12, 1) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(18, 18, 20, 0.92) 0%,
+      rgba(11, 11, 12, 1) 100%
+    );
+  color: #F5F3EE;
+
   position: relative;
 }
 
@@ -48,6 +103,139 @@ html {
     radial-gradient(circle at 20% 10%, rgba(237, 210, 141, 0.12), transparent 55%),
     radial-gradient(circle at 80% 70%, rgba(182, 159, 109, 0.10), transparent 60%);
   pointer-events: none;
+}
+
+/* Section divider (subtle, centered) */
+.vn-section-divider {
+  padding: 0.75rem 0;
+}
+
+.vn-section-divider__line {
+  height: 1px;
+  width: min(820px, 100%);
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(182, 159, 109, 0.22),
+    transparent
+  );
+}
+
+/* Closing section: subtle candlelight warmth */
+#closing.bg-ink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(196, 122, 44, 0.12) 0%,
+    rgba(196, 122, 44, 0.06) 30%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#closing.bg-ink > * {
+  position: relative;
+  z-index: 1;
+}
+
+#closing .closing-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(237, 210, 141, 0.18);
+}
+
+/* Warm ivory modal styling (Reflection Guide) */
+.vn-modal .modal-content {
+  background: linear-gradient(135deg, #e4d9cd 0%, #fcf4ec 100%);
+  border: 1px solid rgba(182, 159, 109, 0.35);
+  border-radius: 1rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(237, 210, 141, 0.18);
+}
+
+.vn-modal .modal-header {
+  border-bottom-color: rgba(182, 159, 109, 0.18);
+  position: relative;
+  justify-content: center;
+}
+
+.vn-modal .modal-title {
+  color: #2a2419;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.vn-modal .modal-body {
+  color: #3d3529;
+}
+
+.vn-modal .btn-close {
+  opacity: 0.55;
+  filter: sepia(1) saturate(1.6) hue-rotate(10deg);
+  position: absolute;
+  right: 1.25rem;
+}
+
+.vn-modal .btn-close:hover,
+.vn-modal .btn-close:focus {
+  opacity: 0.85;
+}
+
+.vn-modal .btn-close:focus-visible {
+  outline: 3px solid rgba(182, 159, 109, 0.4);
+  outline-offset: 2px;
+}
+
+.vn-modal-subtext {
+  color: #4a4032;
+  text-align: center;
+  font-size: 18px;
+}
+
+.vn-modal-micro {
+  color: #6a5b47;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.vn-ghl-embed {
+  margin-top: 1rem;
+}
+
+/* Hero: add extra warmth around the book only */
+#top.bg-ink .hero-book-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+#top.bg-ink .hero-book-glow::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(600px, 125%);
+  height: min(600px, 125%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(196, 122, 44, 0.52) 0%,
+    rgba(196, 122, 44, 0.26) 35%,
+    rgba(138, 90, 43, 0.14) 55%,
+    transparent 80%
+  );
+  filter: blur(16px);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#top.bg-ink .hero-book-glow img {
+  position: relative;
+  z-index: 1;
 }
 
 /* Hero-only: controlled amber warmth (medium) + subtle texture */
@@ -182,6 +370,8 @@ html {
 /* Layout */
 .section {
   scroll-margin-top: 1rem;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
 }
 
 .bg-panel {
@@ -280,6 +470,12 @@ html {
 
   .btn:hover {
     transform: translateY(-1px);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #closing .btn:hover {
+    transform: none;
   }
 }
 
@@ -393,6 +589,57 @@ html {
   padding: 1.5rem;
   background: transparent;
   box-shadow: none;
+}
+
+/* What Unshackled Is - soft clarity box */
+#what .box-border-only {
+  padding: 2.75rem;
+  border-color: rgba(182, 159, 109, 0.22);
+}
+
+#what .what-box-surface {
+  background: #FDF8F6;
+}
+
+.what-box {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.what-item {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.what-label {
+  font-weight: 700;
+  color: #2a2419;
+}
+
+.what-text {
+  color: var(--vn-muted);
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* RAAA framework refinements */
+#raaa .raaa-header {
+  margin-bottom: 3.5rem !important;
+}
+
+#raaa .card-soft {
+  box-shadow: 0 4px 14px rgba(17, 17, 17, 0.08);
+}
+
+/* Book section refinements */
+#book.book-warm {
+  background: #f4e4d9;
+}
+
+@media (min-width: 992px) {
+  #book .book-text {
+    padding-left: 1.25rem;
+  }
 }
 
 /* Calendar embed wrapper (GHL booking iframe) */
@@ -701,4 +948,12 @@ a.link-ink:hover {
 
 header.py-4 {
     background: black;
+}
+
+.ghl-form-wrap {
+  margin: unset;
+}
+
+section#raaa {
+    background: #f4ebe6;
 }
