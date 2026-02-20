@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600&family=Roboto:wght@300;500&display=swap" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -32,244 +32,180 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Header: centered logo only (no navbar, no link) -->
-    <header class="py-4 bg-black">
-      <div class="container text-center">
-        <img
-          class="brand-logo img-fluid"
-          src="/assets/images/vas-noble.png"
-          alt="Vas Noble"
-          width="240"
-          height="64"
-          loading="eager"
-          decoding="async"
-        />
+    <!-- Site header: centered logo -->
+    <header class="vn-header">
+      <div class="vn-header__inner">
+        <a href="/" class="vn-header__logo-link" aria-label="Vas Noble — home">
+          <img src="/assets/images/vas-noble.png" alt="Vas Noble" class="vn-header__logo" />
+        </a>
       </div>
     </header>
 
     <main id="main">
       <!-- SECTION 1: Hero (The Invitation) -->
-      <section id="top" class="section py-5 bg-ink text-white">
-        <div class="container">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-7">
-              <p class="text-uppercase letter-spaced text-white-50 mb-3">An invitation to return to self</p>
-              
-              <h1 class="display-5 mb-3">You are not broken. You are becoming.</h1>
-
-              <p class="lead text-white-50 mb-3">
-                <span class="fw-semibold text-white">Unshackled</span> is part of the Vas Noble ecosystem, a body of work created for women
-                who are ready to move from survival into self-directed power through truth, awareness, and aligned action.
-              </p>
-
-              <p class="text-white-50 mb-3">
-                This is not about revisiting pain. It is about returning to yourself with clarity, dignity, and self-trust.
-              </p>
-
-              <p class="small text-white-50 mb-4" style="max-width: 80ch">
-                Unshackled is the written foundation behind the RAAA™ Framework and the gateway into the Unchained Challenge™ experience.
-              </p>
-
-              <div class="d-flex flex-wrap gap-3">
-                <button type="button" class="btn btn-vn" data-bs-toggle="modal" data-bs-target="#leadModal">
-                  Start Where You Are
-                </button>
-
+      <section class="vn-hero">
+        <div class="vn-hero__inner">
+          <div class="vn-hero__grid">
+            <div class="vn-hero__copy">
+              <div class="vn-kicker">AN INVITATON TO RETURN TO SELF</div>
+              <h1 class="vn-title">You are not broken.<br />You are becoming.</h1>
+              <p class="vn-body"><strong>Unshackled</strong> is part of the Vas Noble ecosystem, a body of work created for women who are ready to move from survival into self-directed power through truth, awareness, and aligned action.</p>
+              <p class="vn-body vn-body--muted">This is not about revisiting pain. It is about returning to yourself with clarity, dignity, and self-trust.</p>
+              <p class="vn-body vn-body--muted">Unshackled is the written foundation behind the RAAA™ Framework and the gateway into the Unchained Challenge™ experience.</p>
+              <div class="vn-hero__actions">
                 <a
-                  class="btn btn-vn-outline"
-                  href="https://www.amazon.in/Unshackled-Framework-Escaping-Relationships-Reclaiming-ebook/dp/B0FPBXZFSN"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  class="vn-btn vn-btn--primary"
+                  href="#leadModal"
+                  role="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#leadModal"
                 >
-                  Find the Book on Amazon
+                  START WHERE YOU ARE
                 </a>
-              </div>
-
-              <div class="mt-4">
-                <div class="border-top" style="border-color: rgba(237, 210, 141, 0.25) !important"></div>
+                <a class="vn-btn vn-btn--secondary" href="https://www.amazon.com/dp/B0FP9WQZRM" target="_blank" rel="noopener">FIND THE BOOK ON AMAZON</a>
               </div>
             </div>
-
-            <div class="col-lg-5 text-center hero-book-glow">
-              <img
-                src="/assets/images/UnshackledBook-transparent.png"
-                class="img-fluid rounded-3"
-                style="max-width: 360px;"
-                alt="Unshackled book cover"
-                loading="lazy"
-              />
+            <div class="vn-hero__bookWrap">
+              <img class="vn-hero__book" src="/assets/images/bookcover.png" alt="Unshackled book cover" />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 2: The Free Offering (The Guide) -->
-      <section id="reflection" class="section py-5 bg-ink text-white">
-        <div class="container">
-          <div class="row g-5 align-items-center">
-            <div class="col-lg-7">
-              <p class="text-uppercase letter-spaced mb-3 text-gold">The reflection</p>
-              <h2 class="display-6 mb-3">Unshackled: A Reflection on the Chains You No Longer Carry.</h2>
-              <p class="text-white-50 mb-4" style="max-width: 62ch">
-                This guided reflection is an invitation to pause and notice what you are no longer meant to carry. It centers on clarity, awareness, and conscious release.
+      <!-- SECTION 2: Reflection -->
+      <section class="vn-reflection" id="reflection">
+        <div class="vn-reflection__inner">
+          <div class="vn-reflection__grid">
+            <div class="vn-reflection__copy">
+              <div class="vn-kicker">THE REFLECTION</div>
+              <h2 class="vn-title vn-title--sm">
+                Unshackled: A Reflection on<br />
+                What You’re Ready to Release.
+              </h2>
+              <p class="vn-body vn-body--muted">
+                This guided reflection invites you to pause and notice what you are no longer meant to carry.
+                It centers on clarity, awareness, and conscious release — <em>not fixing, not forcing, simply seeing.</em>
               </p>
-
-              <ul class="list-unstyled mb-0 d-grid gap-3" style="max-width: 70ch">
-                <li class="d-flex gap-3 align-items-start">
-                  <span class="text-gold" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span>
-                  <span class="text-white-50">
-                    A short-guided reflection to help you notice what you have been holding, without labeling yourself as broken.
-                  </span>
-                </li>
-                <li class="d-flex gap-3 align-items-start">
-                  <span class="text-gold" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span>
-                  <span class="text-white-50">
-                    A gentle beginning that honors where you are and allows you to choose what you are ready to release.
-                  </span>
-                </li>
-                 <p class="small text-white-50 mb-4" style="max-width: 80ch">
-                Reflection is where truth begins to surface.
-              </p>
-              </ul>
-            </div>
-
-            <div class="col-lg-5">
-              <div class="card-soft p-4 p-md-5">
-                <h3 class="h4 mb-3">Receive the Reflection</h3>
-                <p class="text-white-50 mb-4">
-                  Leave your details to receive the guided reflection.
-                </p>
-
-                <button
-                  type="button"
-                  class="btn btn-vn w-100"
-                  data-bs-toggle="modal"
-                  data-bs-target="#leadModal"
-                >
-                  Receive the Reflection
-                </button>              
+              <div class="vn-reflection__bullets">
+                <div class="vn-reflection__bullet">
+                  <i class="fa-solid fa-circle-check vn-reflection__check" aria-hidden="true"></i>
+                  <p class="vn-body vn-body--muted">
+                    A short guided reflection to help you notice what you have been holding — without labeling yourself as broken.
+                  </p>
+                </div>
+                <div class="vn-reflection__bullet">
+                  <i class="fa-solid fa-circle-check vn-reflection__check" aria-hidden="true"></i>
+                  <p class="vn-body vn-body--muted">
+                    A gentle beginning that honors where you are — and allows you to choose what you are ready to release.
+                  </p>
+                </div>
               </div>
+              <p class="vn-body vn-body--muted">
+                Unshackled is the written foundation behind the RAAA™ Framework and the gateway into the Unchained Challenge™ experience.
+              </p>
+              <div class="vn-reflection__divider">
+                <span></span>
+                <p class="vn-reflection__dividerText">
+                  Reflection is where <strong>truth begins</strong> to surface.
+                </p>
+                <span></span>
+              </div>
+            </div>
+            <div class="vn-reflection__card">
+              <h3 class="vn-reflection__cardTitle">Begin with Reflection</h3>
+              <p class="vn-body vn-body--muted">
+                Share your details below and the guided reflection will be sent directly to you.
+              </p>
+              <button class="vn-reflection__cta" type="button" data-bs-toggle="modal" data-bs-target="#leadModal">
+                Receive the Reflection
+              </button>
+              <p class="vn-reflection__microcopy">
+                No pressure. No noise. Just the next honest step.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- SECTION 3: What Unshackled Is -->
-      <section id="what" class="section py-5 bg-panel">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-              <div class="text-center">
-                <p class="text-uppercase letter-spaced text-vn-muted mb-3">What this is</p>
-                <h2 class="display-6 mb-3">What Unshackled Is</h2>
-                <p class="text-vn-muted mb-0" style="max-width: 70ch; margin: 0 auto">
-                  A steady return to your truth, without spectacle or pressure.
-                </p>
-              </div>
-
-              <div class="mt-5">
-                <div class="box-border-only what-box-surface">
-                  <div class="what-box">
-                    <div class="what-item">
-                      <div class="what-label">What it is</div>
-                      <p class="what-text">
-                        Unshackled is part of the Vas Noble ecosystem, a body of work centered on truth, clarity, and self-authorship.
-                      </p>
-                    </div>
-
-                    <div class="what-item">
-                      <div class="what-label">What it is not</div>
-                      <p class="what-text">
-                        It does not ask you to relive your past or define yourself by what you have endured.
-                      </p>
-                    </div>
-
-                    <div class="what-item">
-                      <div class="what-label">Who it is for</div>
-                      <p class="what-text">
-                        It exists for women who have done the inner work, who are no longer shrinking, and who are ready to choose themselves with intention, dignity, and purpose.
-                      </p>
-                    </div>
-
-                    <div class="what-item">
-                      <div class="what-label">What changes</div>
-                      <p class="what-text">
-                        Here, the shift moves from survival to alignment, from healing into self-leadership, and from reaction into self-directed power.
-                      </p>
-                    </div>
-
-                    <div class="what-item">
-                      <div class="what-label">How it feels</div>
-                      <p class="what-text mb-0">
-                        It feels steady, affirming, and quietly transformative. A return to self rather than a reinvention.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section class="vn-what" id="what">
+        <div class="vn-what__inner">
+          <div class="vn-what__header">
+            <div class="vn-what__kicker">WHAT THIS IS</div>
+            <h2 class="vn-what__title">What Unshackled Is</h2>
+            <p class="vn-what__subhead">A steady return to your truth, without spectacle or pressure.</p>
+          </div>
+          <div class="vn-what__card">
+            <p class="vn-what__row">
+              <span class="vn-what__label">What it is:</span>
+              Unshackled is part of the Vas Noble ecosystem, a body of work centered on truth, clarity, and self-authorship.
+            </p>
+            <p class="vn-what__row">
+              <span class="vn-what__label">What it is not:</span>
+              It does not ask you to relive your past or define yourself by what you have endured.
+            </p>
+            <p class="vn-what__row">
+              <span class="vn-what__label">Who it is for:</span>
+              It exists for women who have done the inner work, who are no longer shrinking, and who are ready to choose themselves with intention, dignity, and purpose.
+            </p>
+            <p class="vn-what__row">
+              <span class="vn-what__label">What changes:</span>
+              Here, the shift moves from survival to alignment, from healing into self-leadership, and from reaction into self-directed power.
+            </p>
+            <p class="vn-what__row vn-what__row--last">
+              <span class="vn-what__label">How it feels:</span>
+              It feels steady, affirming, and quietly transformative. A return to self rather than a reinvention.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- Divider: What → RAAA -->
-      <div class="vn-section-divider bg-panel" aria-hidden="true">
-        <div class="container">
-          <div class="vn-section-divider__line"></div>
-        </div>
-      </div>
+     
+ <!-- SECTION 5: The Blueprint -->
+     <section class="vn-blueprint" aria-labelledby="vn-blueprint-title">
+        <div class="vn-blueprint__inner">
 
-      <!-- SECTION 4: The RAAA Framework™ -->
-      <section id="raaa" class="section py-5 bg-panel">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-              <div class="text-center mb-5 raaa-header">
-                <p class="text-uppercase letter-spaced text-vn-muted mb-3">The blueprint</p>
-                <h2 class="display-6 mb-3">The RAAA Framework™</h2>
-                <p class="text-vn-muted mb-0" style="max-width: 72ch; margin: 0 auto">
-                  A steady structure for returning to yourself and stepping into self-directed power.
-                </p>
-              </div>
-
-              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
-                <div class="col">
-                  <div class="card-soft p-4 h-100">
-                    <p class="text-uppercase letter-spaced text-vn-muted mb-2">Reclaim</p>
-                    <h3 class="h5 fw-semibold mb-2">Returning to your voice</h3>
-                    <p class="text-vn-muted mb-0">Recognizing what is yours and choosing yourself again.</p>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card-soft p-4 h-100">
-                    <p class="text-uppercase letter-spaced text-vn-muted mb-2">Activate</p>
-                    <h3 class="h5 fw-semibold mb-2">Moving with intention</h3>
-                    <p class="text-vn-muted mb-0">Turning awareness into aligned action.</p>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card-soft p-4 h-100">
-                    <p class="text-uppercase letter-spaced text-vn-muted mb-2">Align</p>
-                    <h3 class="h5 fw-semibold mb-2">Living from your truth</h3>
-                    <p class="text-vn-muted mb-0">Letting your values guide your decisions.</p>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card-soft p-4 h-100">
-                    <p class="text-uppercase letter-spaced text-vn-muted mb-2">Ascend</p>
-                    <h3 class="h5 fw-semibold mb-2">Leading yourself forward</h3>
-                    <p class="text-vn-muted mb-0">Sustaining your growth with clarity and self-trust.</p>
-                  </div>
-                </div>
-              </div>
-
-              <p class="small text-vn-muted mt-4 mb-0 text-center" style="max-width: 80ch; margin: 0 auto;">
-                The RAAA Framework™ is not a formula. It is a lived process you move through at your own pace.
-              </p>
-            </div>
+          <div class="vn-blueprint__header">
+            <div class="vn-blueprint__kicker">THE BLUEPRINT</div>
+            <h2 class="vn-blueprint__title" id="vn-blueprint-title">The RAAA Framework™</h2>
+            <p class="vn-blueprint__sub">
+              A steady structure for returning to yourself and stepping into self-directed power.
+            </p>
           </div>
+
+          <div class="vn-blueprint__cards" role="list">
+            <article class="vn-card" role="listitem">
+              <div class="vn-card__kicker">RECLAIM</div>
+              <h3 class="vn-card__title">Returning<br/>to your voice</h3>
+              <p class="vn-card__body">Recognizing what is yours and choosing yourself again.</p>
+            </article>
+
+            <article class="vn-card" role="listitem">
+              <div class="vn-card__kicker">ACTIVATE</div>
+              <h3 class="vn-card__title">Moving with<br/>intention</h3>
+              <p class="vn-card__body">Turning awareness into aligned action.</p>
+            </article>
+
+            <article class="vn-card" role="listitem">
+              <div class="vn-card__kicker">ALIGN</div>
+              <h3 class="vn-card__title">Living from<br/>your truth</h3>
+              <p class="vn-card__body">Letting your values guide your decisions.</p>
+            </article>
+
+            <article class="vn-card" role="listitem">
+              <div class="vn-card__kicker">ASCEND</div>
+              <h3 class="vn-card__title">Leading yourself<br/>forward</h3>
+              <p class="vn-card__body">Sustaining your growth with clarity and self-trust.</p>
+            </article>
+          </div>
+
+          <div class="vn-blueprint__footer">
+            The RAAA Framework™ is not a formula. It is a lived process you move through at your own pace.
+          </div>
+
         </div>
       </section>
+
 
       <!-- SECTION 5: The Book -->
       <section id="book" class="section py-5 bg-panel book-warm">
@@ -277,7 +213,7 @@
           <div class="row align-items-center g-5">
             <div class="col-lg-5 text-center">
               <img
-                src="/assets/images/book_cover.jpg"
+                src="/assets/images/unshackled-foundation-3d_image.png"
                 class="img-fluid rounded-3"
                 style="max-width: 330px; box-shadow: 0 14px 40px rgba(0,0,0,0.18);"
                 alt="Unshackled book cover"
@@ -285,18 +221,26 @@
               />
             </div>
             <div class="col-lg-7 book-text">
-              <p class="text-uppercase letter-spaced text-vn-muted mb-3">The book</p>
-              <h2 class="display-6 mb-3">The Foundation of the Vas Noble Movement</h2>
-              <p class="text-vn-muted mb-3" style="max-width: 70ch">
-                Unshackled is the foundational text within the Vas Noble ecosystem. It offers reflection, structure, and lived insight for women who are ready to move from survival into clarity, self-trust, and self-directed leadership.
+              <p class="text-uppercase letter-spaced mb-3 book-kicker">The book</p>
+              <h2 class="display-6 mb-3 book-title">Unshackled:<br>The Written Beginning</h2>
+              <p class="mb-3 book-sub" style="max-width: 70ch">
+                Unshackled is the foundational text of the Vas Noble ecosystem.
+It offers language for what many women have known but never named — and structure for moving from survival into self-directed clarity.
               </p>
-              <p class="small text-vn-muted mb-4" style="max-width: 70ch">
-                For many, the book is the entry point into the broader Vas Noble experience.
+              <p class="small book-sub" style="max-width: 70ch">
+                This is not a memoir of pain.
               </p>
+              <p class="small book-sub" style="max-width: 70ch">
+                It is a return to self-leadership.
+              </p>
+                <p class="small mb-4 book-sub" style="max-width: 70ch">
+               Every movement begins with language.
+              </p>
+
 
               <div class="d-flex flex-wrap gap-3">
                 <a
-                  class="btn btn-vn"
+                  class="vn-btn vn-btn--primary"
                   href="https://www.amazon.in/Unshackled-Framework-Escaping-Relationships-Reclaiming-ebook/dp/B0FPBXZFSN"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -304,7 +248,7 @@
                   Read About the Book
                 </a>
 
-                <button type="button" class="btn btn-vn-outline" data-bs-toggle="modal" data-bs-target="#leadModal">
+                <button type="button" class="vn-btn vn-btn--secondary" data-bs-toggle="modal" data-bs-target="#leadModal">
                   Receive the Reflection
                 </button>
               </div>
@@ -319,7 +263,10 @@
           <div class="row justify-content-center text-center">
             <div class="col-12 col-lg-10 col-xl-8">
               <!-- <p class="text-uppercase letter-spaced text-gold mb-3">Closing affirmation</p> -->
-              <h2 class="display-6 mb-4">You don’t need to be fixed. You don’t need to be rescued. You only need space and truth.</h2>
+              <h2 class="display-6 mb-4"> Return to yourself.<br>
+              Choose with clarity.<br>
+              Move in your own time.
+              </h2>
               <p class="text-white-50 mb-4" style="max-width: 70ch; margin: 0 auto">
                 Begin where you are. Return as needed. Choose yourself with clarity and intention.
               </p>
@@ -329,11 +276,17 @@
               </p>
 
               <div class="d-flex justify-content-center flex-wrap gap-3">
-                <button type="button" class="btn btn-vn" data-bs-toggle="modal" data-bs-target="#leadModal">
-                  Start Where You Are
-                </button>
                 <a
-                  class="btn btn-vn-outline"
+                  class="vn-btn vn-btn--primary"
+                  href="#leadModal"
+                  role="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#leadModal"
+                >
+                  Begin Where You Are
+                </a>
+                <a
+                  class="vn-btn vn-btn--secondary"
                   href="https://www.amazon.in/Unshackled-Framework-Escaping-Relationships-Reclaiming-ebook/dp/B0FPBXZFSN"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -352,9 +305,9 @@
                 <span class="mx-1">|</span>
                 <a class="link-ink" href="/terms.html">Terms &amp; Conditions</a>
                 <span class="mx-1">|</span>
-                <a class="link-ink" href="#">Cookie Policy</a>
+                <a class="link-ink" href="/cookie-policy.html">Cookie Policy</a>
                 <span class="mx-1">|</span>
-                <a class="link-ink" href="#">Disclaimer</a>
+                <a class="link-ink" href="/disclaimer.html">Disclaimer</a>
               </p>
             </div>
           </div>
