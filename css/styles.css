@@ -665,9 +665,7 @@ html {
   --hr-btn-text: #1a1208;
   --hr-cream: rgba(238, 228, 210, 0.94);
   background-color: #f4e4d9;
-  background-image:
-    linear-gradient(180deg, #EBDDD5 0%, #F5EAE7 100%),
-    url('/assets/images/Unshackled-book-section-bg.jpg');
+  background-image: linear-gradient(180deg, #EBDDD5 0%, #f5eae7c4 100%), url(/assets/images/Unshackled-book-section-bg.jpg);
   background-position: right bottom, right bottom;
   background-repeat: no-repeat, no-repeat;
   background-size: cover, cover;
@@ -1205,13 +1203,64 @@ header.py-4 {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.vn-hero__bookWrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  width: 130%;
+  height: 40%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.50) 35%, transparent 70%);
+  filter: blur(18px);
+  opacity: 0.65;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Backup: original shadow-only (keep for quick revert)
+.vn-hero__bookWrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 180%;
+  height: 22%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 35%, transparent 70%);
+  filter: blur(18px);
+  opacity: 0.65;
+  z-index: 0;
+  pointer-events: none;
+}
+*/
+
+/* Subtle horizon band (soft gradient across width) */
+.vn-hero__bookWrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 220%;
+  height: 18px;
+  transform: translateX(-50%);
+  /* background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.26) 30%, rgba(0, 0, 0, 0.26) 70%, rgba(0, 0, 0, 0) 100%); */
+  filter: blur(6px);
+  opacity: 0.65;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .vn-hero__book {
   /* width: min(480px, 100%); */
   height: 500px;
   /* filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.65)); */
-  transform: translateY(-4px);
+  transform: translateY(8px);
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive */
@@ -1685,7 +1734,7 @@ section#raaa {
       3. Unshackled-Blueprint-background-image5.jpg — the original scene image underneath
     */
     background-image:      
-      url('/assets/images/Unshackled-Blueprint-background-image5.jpg');
+      url('/assets/images/bg-1.jpg');
     background-size: cover, auto, cover;
     background-position: center, center, center right;
     background-repeat: no-repeat, repeat, no-repeat;
@@ -1700,12 +1749,7 @@ section#raaa {
     position:absolute;
     top:0; left:0; right:0;
     height: 140px;
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0.72) 0%,
-      rgba(40,24,16,0.42) 35%,
-      rgba(246,240,234,0.00) 100%
-    );
+   background: linear-gradient(180deg, #d1cac5 0%, #d1cac5ab 35%, #d1cac50a 100%);
     pointer-events:none;
   }
 
